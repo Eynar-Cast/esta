@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parking Inteligente | Demo Premium</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="login-screen active" id="login-screen">
+    <div class="login-panel">
+      <div class="login-brand">
+        <div class="brand-mark"><span class="material-symbols-outlined">directions_car</span></div>
+        <div>
+          <p class="eyebrow">Parking Inteligente</p>
+          <h1>Login seguro</h1>
+        </div>
+      </div>
+      <p class="login-copy">Accede al panel de administración o al panel de usuario con una experiencia premium y atractiva.</p>
+      <div class="pill-group">
+        <button class="pill-btn active" data-target="admin">Admin</button>
+        <button class="pill-btn" data-target="user">Usuario</button>
+      </div>
+      <div class="login-form" id="admin-login">
+        <label>Usuario</label>
+        <input type="text" id="admin-user" placeholder="admin@parqueo.com" value="admin" />
+        <label>Contraseña</label>
+        <input type="password" id="admin-pass" placeholder="••••••••" value="1234" />
+        <button class="primary-btn" id="login-admin">Ingresar como Admin</button>
+      </div>
+      <div class="login-form hidden" id="user-login">
+        <label>Usuario</label>
+        <input type="text" id="user-user" placeholder="maria@mail.com" value="maria@mail.com" />
+        <label>Contraseña</label>
+        <input type="password" id="user-pass" placeholder="••••••••" value="user123" />
+        <button class="primary-btn" id="login-user">Ingresar como Usuario</button>
+        <button class="secondary-btn" id="go-register">Registrarme</button>
+      </div>
+      <div class="login-footnote">
+        <span class="material-symbols-outlined">shield</span>
+        Conexión demo segura. Página completa para enfocar la autenticación.
+      </div>
+    </div>
+    <div class="login-visual">
+      <div class="visual-card">
+        <div class="visual-top">
+          <span class="material-symbols-outlined">local_parking</span>
+          <h2>Parqueo premium</h2>
+        </div>
+        <p>Panel de control con estadísticas, monitoreo en tiempo real, pagos QR y gestión de espacios.</p>
+        <div class="visual-stats">
+          <div><strong>120</strong><span>Espacios</span></div>
+          <div><strong>83</strong><span>Vehículos</span></div>
+          <div><strong>320</strong><span>Clientes</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="app-shell hidden" id="app-shell">
+    <header class="topbar">
+      <div class="brand-row">
+        <div class="brand-mark small"><span class="material-symbols-outlined">directions_car</span></div>
+        <div>
+          <p class="eyebrow">Parqueo Inteligente</p>
+          <h1 id="panel-title">Panel Admin</h1>
+        </div>
+      </div>
+      <button class="logout-btn" data-target="login">Cerrar sesión</button>
+    </header>
+
+    <main class="dashboard hidden" id="admin-dashboard">
+      <section class="header-cards fade-in-up">
+        <article class="hero-card admin-hero">
+          <div>
+            <p class="eyebrow">Administrador</p>
+            <h2>Control total del parqueo</h2>
+            <p>Supervisa espacios, flota, pagos y clientes desde un solo tablero.</p>
+          </div>
+          <div class="hero-actions">
+            <button class="primary-btn">Ver reporte mensual</button>
+            <button class="secondary-btn">Exportar datos</button>
+          </div>
+        </article>
+      </section>
+
+      <section class="stats-grid fade-in-up" style="animation-delay: 0.1s;">
+        <article class="stat-card">
+          <div class="icon-holder blue"><span class="material-symbols-outlined">event_seat</span></div>
+          <span>Gestión de Espacios</span>
+          <h3>120</h3>
+          <p>37 disponibles</p>
+        </article>
+        <article class="stat-card">
+          <div class="icon-holder green"><span class="material-symbols-outlined">speed</span></div>
+          <span>Ingreso / Salida</span>
+          <h3>83</h3>
+          <p>24h: 65 vehículos</p>
+        </article>
+        <article class="stat-card">
+          <div class="icon-holder purple"><span class="material-symbols-outlined">qr_code</span></div>
+          <span>Pagos</span>
+          <h3>$4,750</h3>
+          <p>Demo QR estático</p>
+        </article>
+        <article class="stat-card">
+          <div class="icon-holder orange"><span class="material-symbols-outlined">groups</span></div>
+          <span>Clientes</span>
+          <h3>320</h3>
+          <p>+16 nuevos</p>
+        </article>
+      </section>
+
+      <section class="module-grid fade-in-up" style="animation-delay: 0.2s;">
+        <article class="module-card">
+          <div class="module-title"><span class="material-symbols-outlined">dashboard</span><h3>Monitoreo</h3></div>
+          <p>Estado en tiempo real de ocupación y actividad de accesos.</p>
+          <div class="status-pill active">En vivo</div>
+        </article>
+        <article class="module-card">
+          <div class="module-title"><span class="material-symbols-outlined">place</span><h3>Espacios</h3></div>
+          <p>Tarjetas de estacionamiento inteligentes y gestión de niveles.</p>
+          <div class="status-pill">120 totales</div>
+        </article>
+        <article class="module-card">
+          <div class="module-title"><span class="material-symbols-outlined">receipt_long</span><h3>Reportes</h3></div>
+          <p>Analiza ingresos, tiempos y uso para decisiones rápidas.</p>
+          <div class="status-pill">Último: 10 min</div>
+        </article>
+      </section>
+
+      <section class="report-card fade-in-up" style="animation-delay: 0.3s;">
+        <div class="report-header">
+          <div>
+            <p class="eyebrow">Insights</p>
+            <h3>Reporte Operativo</h3>
+          </div>
+          <span class="material-symbols-outlined">analytics</span>
+        </div>
+        <div class="report-body">
+          <div class="report-tile">
+            <strong>92%</strong>
+            <span>Capacidad utilizada</span>
+          </div>
+          <div class="report-tile">
+            <strong>40</strong>
+            <span>Reservas activas</span>
+          </div>
+          <div class="report-tile">
+            <strong>5m</strong>
+            <span>Tiempo promedio de salida</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <main class="dashboard hidden" id="user-dashboard">
+      <section class="header-cards fade-in-up">
+        <article class="hero-card user-hero">
+          <div>
+            <p class="eyebrow">Usuario</p>
+            <h2>Tu parqueo inteligente</h2>
+            <p>Reserva, paga y accede con elegancia desde tu panel móvil.</p>
+          </div>
+          <div class="hero-actions">
+            <button class="primary-btn">Ver reservas</button>
+            <button class="secondary-btn">Historial</button>
+          </div>
+        </article>
+      </section>
+
+      <section class="actions-grid fade-in-up" style="animation-delay: 0.1s;">
+        <article class="action-card reservation-card">
+          <div class="action-header"><span class="material-symbols-outlined">event_available</span><div>
+            <h3>Reserva un espacio</h3>
+            <p>Selecciona intervalo de tiempo, lugar y paga con estilo.</p>
+          </div></div>
+          <div class="reservation-controls">
+            <div class="time-select">
+              <label for="start-time">Inicio</label>
+              <input type="time" id="start-time" value="09:00" min="06:00" max="23:00" />
+            </div>
+            <div class="time-select">
+              <label for="end-time">Fin</label>
+              <input type="time" id="end-time" value="11:00" min="06:00" max="23:00" />
+            </div>
+          </div>
+          <div class="reservation-summary">
+            <span id="selected-slot-label">Espacio no seleccionado</span>
+            <span id="reservation-price">Tarifa $5/h</span>
+          </div>
+          <button class="primary-btn" id="reserve-spot">Reservar ahora</button>
+          <button class="secondary-btn" id="register-exit">Registrar salida</button>
+          <div class="banner success hidden" id="reservation-message"></div>
+        </article>
+        <article class="action-card">
+          <div class="action-header"><span class="material-symbols-outlined">qr_code_2</span><div>
+            <h3>Paga con QR</h3>
+            <p>Código estático para demo.</p>
+          </div></div>
+          <div class="qr-box">
+            <span class="material-symbols-outlined">qr_code</span>
+            <p>QR para pago</p>
+          </div>
+          <button class="primary-btn" id="show-qr">Mostrar QR</button>
+        </article>
+      </section>
+
+      <section class="parking-map fade-in-up" style="animation-delay: 0.15s;">
+        <div class="module-title"><span class="material-symbols-outlined">local_parking</span><h3>Mapa de estacionamiento</h3></div>
+        <div class="parking-grid" id="parking-grid"></div>
+        <div class="parking-legend">
+          <span><span class="legend-dot available"></span> Disponible</span>
+          <span><span class="legend-dot occupied"></span> Ocupado</span>
+          <span><span class="legend-dot selected"></span> Seleccionado</span>
+        </div>
+      </section>
+
+      <section class="user-widgets fade-in-up" style="animation-delay: 0.2s;">
+        <article class="user-card">
+          <div class="card-header"><h3>Reserva activa</h3><span id="active-slot">Sin reserva</span></div>
+          <p id="active-note">Selecciona un espacio y horario para activar tu reserva.</p>
+          <div class="tile-row"><span>Entrada</span><strong id="active-start">--:--</strong></div>
+          <div class="tile-row"><span>Salida</span><strong id="active-end">--:--</strong></div>
+        </article>
+        <article class="user-card">
+          <div class="card-header"><h3>Cliente</h3><span>Historial</span></div>
+          <div class="tile-row"><span>Visitas</span><strong>3</strong></div>
+          <div class="tile-row"><span>Pagos</span><strong>5</strong></div>
+        </article>
+      </section>
+
+      <section class="demo-steps fade-in-up" style="animation-delay: 0.3s;">
+        <article class="step-card"><span>1</span><p>Regístrate e inicia sesión.</p></article>
+        <article class="step-card"><span>2</span><p>Reserva tu espacio inteligente.</p></article>
+        <article class="step-card"><span>3</span><p>Realiza el pago con QR en la demo.</p></article>
+      </section>
+    </main>
+
+    <div class="modal hidden" id="register-modal">
+      <div class="modal-card">
+        <div class="modal-header">
+          <div>
+            <p class="eyebrow">Registro rápido</p>
+            <h3>Crear cuenta</h3>
+          </div>
+          <button type="button" class="close-modal" data-target="close">×</button>
+        </div>
+        <label>Nombre completo</label>
+        <input type="text" id="reg-name" placeholder="María López" />
+        <label>Email</label>
+        <input type="email" id="reg-email" placeholder="maria@mail.com" />
+        <label>Contraseña</label>
+        <input type="password" id="reg-pass" placeholder="••••••••" />
+        <button class="primary-btn" id="register-submit">Crear cuenta</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
