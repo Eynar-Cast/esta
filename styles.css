@@ -1,4 +1,4 @@
-﻿:root {
+:root {
   color-scheme: dark;
   --bg: #050816;
   --surface: rgba(12, 19, 41, 0.92);
@@ -49,7 +49,8 @@ button {
   padding: 24px;
   background: radial-gradient(circle at top left, rgba(107, 156, 255, 0.24), transparent 18%),
     linear-gradient(135deg, rgba(4, 10, 24, 0.95), rgba(7, 14, 35, 0.98));
-  overflow: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   z-index: 20;
   transition: opacity 0.5s ease, visibility 0.5s ease;
 }
@@ -534,6 +535,14 @@ button.secondary-btn,
   font-size: 48px;
 }
 
+.qr-box img {
+  width: 160px;
+  height: 160px;
+  border-radius: 16px;
+  background: #fff;
+  padding: 8px;
+}
+
 .user-card {
   min-height: 170px;
 }
@@ -607,8 +616,13 @@ button.secondary-btn,
 }
 
 @media (max-width: 640px) {
+  .login-screen {
+    align-items: flex-start;
+    padding: 16px;
+  }
   .login-panel {
     padding: 26px;
+    margin: 12px 0;
   }
   .login-brand {
     flex-direction: column;
