@@ -21,12 +21,17 @@
   box-sizing: border-box;
 }
 
-html, body {
-  margin: 0;
-  min-height: 100%;
+html {
+  height: 100%;
 }
 
 body {
+  margin: 0;
+  min-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: contain;
   background: radial-gradient(circle at top, rgba(107, 156, 255, 0.18), transparent 18%),
     linear-gradient(180deg, #050816 0%, #08122d 100%);
   color: var(--text);
@@ -354,24 +359,34 @@ button.secondary-btn,
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.banner {
-  padding: 16px 18px;
-  border-radius: 24px;
-  font-weight: 600;
-  display: grid;
+.toast {
+  position: fixed;
+  top: 18px;
+  left: 50%;
+  transform: translate(-50%, -140%);
+  z-index: 60;
+  display: flex;
   align-items: center;
+  gap: 10px;
+  padding: 14px 22px;
+  border-radius: 999px;
+  font-weight: 600;
+  color: #06281f;
+  background: linear-gradient(135deg, #4be3ae, var(--success));
+  box-shadow: 0 16px 40px rgba(54, 214, 169, 0.35);
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  max-width: min(92vw, 420px);
+  text-align: center;
 }
 
-.banner.success {
-  color: #e7fff3;
-  background: rgba(54, 214, 169, 0.18);
-  border: 1px solid rgba(54, 214, 169, 0.35);
+.toast.error {
+  color: #2b0710;
+  background: linear-gradient(135deg, #ff8aa2, var(--danger));
+  box-shadow: 0 16px 40px rgba(255, 90, 125, 0.35);
 }
 
-.banner.error {
-  color: #ffe8e8;
-  background: rgba(255, 90, 125, 0.16);
-  border: 1px solid rgba(255, 90, 125, 0.35);
+.toast.show {
+  transform: translate(-50%, 0);
 }
 
 .parking-map .module-title {
@@ -641,6 +656,14 @@ button.secondary-btn,
   .logout-btn,
   .action-card button {
     width: 100%;
+  }
+  .topbar,
+  .stat-card,
+  .module-card,
+  .action-card,
+  .user-card,
+  .login-panel {
+    backdrop-filter: none;
   }
 }
 
