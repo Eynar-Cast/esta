@@ -17,6 +17,7 @@ const endTimeInput = document.getElementById('end-time');
 const selectedSlotLabel = document.getElementById('selected-slot-label');
 const reservationPrice = document.getElementById('reservation-price');
 const reservationMessage = document.getElementById('reservation-message');
+const paymentMessage = document.getElementById('payment-message');
 const parkingGrid = document.getElementById('parking-grid');
 const registerExitButton = document.getElementById('register-exit');
 const activeSlotLabel = document.getElementById('active-slot');
@@ -220,7 +221,9 @@ registerExitButton.addEventListener('click', () => {
 });
 
 showQrButton.addEventListener('click', () => {
-  alert('Este código QR es estático en la demo. Simulación de pago completada.');
+  paymentMessage.textContent = 'Pago realizado con éxito ✅';
+  paymentMessage.classList.remove('hidden');
+  setTimeout(() => paymentMessage.classList.add('hidden'), 4000);
 });
 
 const logoutButtons = document.querySelectorAll('.logout-btn');
