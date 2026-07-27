@@ -203,10 +203,11 @@
             <p>Código estático para demo.</p>
           </div></div>
           <div class="qr-box">
-            <span class="material-symbols-outlined">qr_code</span>
-            <p>QR para pago</p>
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=PARQUEO-PAGO-DEMO" alt="Código QR para pago" />
+            <p>Escanea para pagar</p>
           </div>
-          <button class="primary-btn" id="show-qr">Mostrar QR</button>
+          <button class="primary-btn" id="show-qr">Confirmar pago</button>
+          <div class="banner success hidden" id="payment-message">Pago realizado con éxito ✅</div>
         </article>
       </section>
 
