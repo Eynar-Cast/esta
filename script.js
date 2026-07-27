@@ -16,8 +16,7 @@ const startTimeInput = document.getElementById('start-time');
 const endTimeInput = document.getElementById('end-time');
 const selectedSlotLabel = document.getElementById('selected-slot-label');
 const reservationPrice = document.getElementById('reservation-price');
-const reservationMessage = document.getElementById('reservation-message');
-const paymentMessage = document.getElementById('payment-message');
+const toast = document.getElementById('toast');
 const parkingGrid = document.getElementById('parking-grid');
 const registerExitButton = document.getElementById('register-exit');
 const activeSlotLabel = document.getElementById('active-slot');
@@ -93,11 +92,13 @@ function updateReservationSummary() {
   reservationPrice.textContent = `Costo estimado: $${(duration * hourlyRate).toFixed(2)} (${duration.toFixed(1)}h)`;
 }
 
+let toastTimer = null;
 function showMessage(message, type = 'success') {
-  reservationMessage.textContent = message;
-  reservationMessage.classList.remove('hidden', 'success', 'error');
-  reservationMessage.classList.add(type);
-  setTimeout(() => reservationMessage.classList.add('hidden'), 4500);
+  toast.textContent = message;
+  toast.classList.toggle('error', type === 'error');
+  toast.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.remove('show'), 3200);
 }
 
 function renderParkingGrid() {
@@ -145,8 +146,8 @@ closeModalButtons.forEach((button) => {
 });
 
 registerSubmit.addEventListener('click', () => {
-  alert('Registro completado. Ahora puedes iniciar sesión con tu usuario.');
   registerModal.classList.add('hidden');
+  showMessage('Cuenta creada con éxito', 'success');
 });
 
 [startTimeInput, endTimeInput].forEach((input) => {
@@ -221,9 +222,7 @@ registerExitButton.addEventListener('click', () => {
 });
 
 showQrButton.addEventListener('click', () => {
-  paymentMessage.textContent = 'Pago realizado con éxito ✅';
-  paymentMessage.classList.remove('hidden');
-  setTimeout(() => paymentMessage.classList.add('hidden'), 4000);
+  showMessage('Pago exitoso', 'success');
 });
 
 const logoutButtons = document.querySelectorAll('.logout-btn');
