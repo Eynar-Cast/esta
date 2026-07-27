@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <div class="toast" id="toast"></div>
   <div class="login-screen active" id="login-screen">
     <div class="login-panel">
       <div class="login-brand">
@@ -105,7 +106,7 @@
           <div class="icon-holder purple"><span class="material-symbols-outlined">qr_code</span></div>
           <span>Pagos</span>
           <h3>$4,750</h3>
-          <p>Demo QR estático</p>
+          <p>Pagos con QR</p>
         </article>
         <article class="stat-card">
           <div class="icon-holder orange"><span class="material-symbols-outlined">groups</span></div>
@@ -195,19 +196,17 @@
           </div>
           <button class="primary-btn" id="reserve-spot">Reservar ahora</button>
           <button class="secondary-btn" id="register-exit">Registrar salida</button>
-          <div class="banner success hidden" id="reservation-message"></div>
         </article>
         <article class="action-card">
           <div class="action-header"><span class="material-symbols-outlined">qr_code_2</span><div>
             <h3>Paga con QR</h3>
-            <p>Código estático para demo.</p>
+            <p>Rápido, seguro y en segundos.</p>
           </div></div>
           <div class="qr-box">
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=PARQUEO-PAGO-DEMO" alt="Código QR para pago" />
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=PARQUEO-PAGO-EXITOSO" alt="Código QR para pago" />
             <p>Escanea para pagar</p>
           </div>
           <button class="primary-btn" id="show-qr">Confirmar pago</button>
-          <div class="banner success hidden" id="payment-message">Pago realizado con éxito ✅</div>
         </article>
       </section>
 
